@@ -1,6 +1,7 @@
 class HighScoreController < ApplicationController
   def index
-    @high_scores = HighScore.all
+    @game = Game.find_by(title: params[:game_title])
+    render json: @game.high_scores
   end
 
   def create
