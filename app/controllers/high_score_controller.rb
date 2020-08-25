@@ -4,7 +4,7 @@ class HighScoreController < ApplicationController
   end
 
   def create
-    @game = Game.find(high_score_params.game_title)
+    @game = Game.find_by(title: high_score_params[:game_title])
     @high_score = HighScore.new(high_score_params.except(:game_title))
     @high_score.game = @game
 
